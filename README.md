@@ -18,7 +18,16 @@
  npm install dotenv
  ```
 
-  Install rest API:
+ Create a file called: ".env" in the root directory
+ Make sure your discord is in Developer Mode
+ Add the following in the .env file:
+ ```
+ BOT_TOKEN=YourBotToken
+ CLIENT_ID=BotsClientID
+ GUILD_ID=DevServerID
+ ```
+ 
+ Install rest API:
  ```
  npm install discord.js @discordjs/rest
  ```
