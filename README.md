@@ -4,22 +4,37 @@
 
 ## Installation
  Initialise project
- ``` npm init -y ```
+ ```
+ npm init -y
+ ```
 
  Install DiscordJS
- ``` npm install discord.js ```
+ ```
+ npm install discord.js
+ ```
 
  Install DOT Enviroment
- ``` npm install dotenv ```
+ ```
+ npm install dotenv
+ ```
+
+  Install rest API:
+ ```
+ npm install discord.js @discordjs/rest
+ ```
 
  Install Nodemon for dev refreshes.
- ``` npm i --save-dev nodemon ```
+ ```
+ npm i --save-dev nodemon
+ ```
 
- To start the bot:
- ``` npm start ```
+## Start the bot
+ For production:
+ ```
+ npm start
+ ```
  
- Dev start:
- ``` nodemon bot.js ```
-
- Install rest API:
- ``` npm install discord.js @discordjs/rest ```
+ For developer mode:
+ ```
+ npm run start:dev
+ ```
