@@ -20,3 +20,6 @@
  
  Dev start:
  ``` nodemon bot.js ```
+
+ Install rest API:
+ ``` npm install discord.js @discordjs/rest ```
