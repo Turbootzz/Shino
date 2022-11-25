@@ -1,4 +1,3 @@
-// require("dotenv").config();
 import {} from "dotenv/config";
 import { Client, GatewayIntentBits, Routes } from "discord.js";
 import { REST } from "@discordjs/rest";
