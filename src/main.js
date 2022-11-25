@@ -23,6 +23,15 @@ client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
 
+client.on('interactionCreate', (interaction) => {
+  if (interaction.isChatInputCommand()) {
+    console.log("used command");
+    interaction.reply({
+      content: `You chose ${interaction.options.get("waifu").value}`
+    });
+  }
+});
+// Types are listed on the discord docs
 async function main() {
   const commands = [
     {
@@ -30,8 +39,20 @@ async function main() {
       description: "See all commands",
     },
     {
-      name: "waifu",
+      name: "waifus",
       description: "Get waifu pics",
+    },
+    { 
+      name: "bestwaifu",
+      description: "Choose your best waifu",
+      options: [
+        {
+          name: "waifu",
+          description: "Tell us your waifu",
+          type: 3,
+          required: true,
+        },
+      ],
     },
   ];
 
