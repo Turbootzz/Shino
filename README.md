@@ -34,6 +34,11 @@
  npm install discord.js @discordjs/rest
  ```
 
+ Install DiscordJS Builders.
+ ```
+ npm i @discordjs/builders
+ ```
+
  Install Nodemon for dev refreshes.
  ```
  npm i --save-dev nodemon
