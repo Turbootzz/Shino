@@ -2,7 +2,7 @@ import {} from "dotenv/config";
 import { Client, GatewayIntentBits, Routes } from "discord.js";
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { REST } from "@discordjs/rest";
-// import { animeCommand } from "./commands/anime.js";
+import { animecmd } from "./commands/anime.js";
 
 const TOKEN = process.env.BOT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -37,44 +37,8 @@ client.on('interactionCreate', (interaction) => {
 });
 // Types are listed on the discord docs
 async function main() {
-  const animeCommand = new SlashCommandBuilder()
-    .setName("anime")
-    .setDescription("Choose your favourite Waifu")
-    .addStringOption((option) => 
-      option
-        .setName("bestwaifu")
-        .setDescription("Tell us your waifu")
-        .setRequired(true)
-        .setChoices(
-          {
-            name: "Ruka",
-            value: "Ruka Sarashina from Rent A Girlfriend",
-          },
-          {
-            name: "Rem",
-            value: "Rem from Re:Zero",
-          }
-        )
-    )
-    .addStringOption((option) => 
-    option
-      .setName("bestanime")
-      .setDescription("Tell us your favourite anime!")
-      .setRequired(true)
-      .setChoices(
-        {
-          name: "Naruto",
-          value: "Naruto Anime",
-        },
-        {
-          name: "DragonBall",
-          value: "DragonBall Anime",
-        }
-      )
-    );
-  const commands = [
-    animeCommand
-  ];
+  
+  const commands = [animecmd.toJSON()];
 
   try {
     console.log('Started refreshing application (/) commands.');
