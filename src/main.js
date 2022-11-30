@@ -1,11 +1,15 @@
 import {} from "dotenv/config";
-import { Client, GatewayIntentBits, Routes } from "discord.js";
-import { SlashCommandBuilder } from "@discordjs/builders";
+import {
+  Client,
+  GatewayIntentBits,
+  Routes
+} from "discord.js";
 import { REST } from "@discordjs/rest";
 import animeCommand from "./commands/anime.js";
 import rolesCommand from "./commands/roles.js";
 import usersCommand from "./commands/user.js";
 import channelsCommand from "./commands/channel.js";
+import banCommand from "./commands/ban.js";
 
 const TOKEN = process.env.BOT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -41,7 +45,13 @@ client.on('interactionCreate', (interaction) => {
 // Types are listed on the discord docs
 async function main() {
   
-  const commands = [animeCommand, rolesCommand, usersCommand, channelsCommand];
+  const commands = [
+    animeCommand,
+    rolesCommand,
+    usersCommand,
+    channelsCommand,
+    banCommand
+  ];
 
   try {
     console.log('Started refreshing application (/) commands.');
