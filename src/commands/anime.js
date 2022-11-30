@@ -1,6 +1,6 @@
 import { SlashCommandBuilder } from "@discordjs/builders";
 
-const animecmd = new SlashCommandBuilder()
+const animeCommand = new SlashCommandBuilder()
     .setName("anime")
     .setDescription("Choose your favourite Waifu")
     .addStringOption((option) => 
@@ -37,4 +37,4 @@ const animecmd = new SlashCommandBuilder()
     );
 
 //    console.log(animecmd);
-export { animecmd };
+export default animeCommand.toJSON();
