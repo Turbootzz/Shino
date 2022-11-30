@@ -4,7 +4,7 @@ const usersCommand = new SlashCommandBuilder()
     .setName("users")
     .setDescription("users dummy")
     .addUserOption((option) => 
-    option.setName("user")
+        option.setName("user")
         .setDescription("does something with users")
         .setRequired(true)
     );
