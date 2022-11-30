@@ -4,6 +4,8 @@ import { SlashCommandBuilder } from "@discordjs/builders";
 import { REST } from "@discordjs/rest";
 import animeCommand from "./commands/anime.js";
 import rolesCommand from "./commands/roles.js";
+import usersCommand from "./commands/user.js";
+import channelsCommand from "./commands/channel.js";
 
 const TOKEN = process.env.BOT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
@@ -39,7 +41,7 @@ client.on('interactionCreate', (interaction) => {
 // Types are listed on the discord docs
 async function main() {
   
-  const commands = [animeCommand, rolesCommand];
+  const commands = [animeCommand, rolesCommand, usersCommand, channelsCommand];
 
   try {
     console.log('Started refreshing application (/) commands.');
