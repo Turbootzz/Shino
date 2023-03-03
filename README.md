@@ -3,19 +3,9 @@
 
 
 ## Installation
- Initialise project
+ Install all packages:
  ```
- npm init -y
- ```
-
- Install DiscordJS
- ```
- npm install discord.js
- ```
-
- Install DOT Enviroment
- ```
- npm install dotenv
+ npm install
  ```
 
  Create a file called: ".env" in the root directory
@@ -29,25 +19,10 @@
  GUILD_ID=DevServerID
  ```
 
- Install REST API:
- ```
- npm install discord.js @discordjs/rest
- ```
-
- Install DiscordJS Builders.
- ```
- npm i @discordjs/builders
- ```
-
- Install Nodemon for dev refreshes.
- ```
- npm i --save-dev nodemon
- ```
-
 ## Start the bot
  For production:
  ```
- npm start
+ npm run start
  ```
  
  For developer mode:
