@@ -17,6 +17,7 @@
  BOT_TOKEN=YourBotToken
  CLIENT_ID=BotsClientID
  GUILD_ID=DevServerID
+ DATABASE_URL=YourMongoDB
  ```
 
 ## Start the bot

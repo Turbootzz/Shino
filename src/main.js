@@ -10,6 +10,7 @@ import {
   InteractionType
 } from "discord.js";
 import { REST } from "@discordjs/rest";
+import mongoose from "mongoose";
 import animeCommand from "./commands/anime.js";
 import introduceCommand from "./commands/introduce.js";
 import rolesCommand from "./commands/roles.js";
@@ -20,6 +21,7 @@ import banCommand from "./commands/ban.js";
 const TOKEN = process.env.BOT_TOKEN;
 const CLIENT_ID = process.env.CLIENT_ID;
 const GUILD_ID = process.env.GUILD_ID; // Guild ID is for developer server and command register instantly
+const DATABASE_URL = process.env.DATABASE_URL // MongoDB database
 
 // GUILD is for dev, without is for production.
 
@@ -39,6 +41,7 @@ client.on('ready', () => {
 });
 
 client.on('interactionCreate', (interaction) => {
+
   if (interaction.isChatInputCommand()) {
     if (interaction.commandName === "anime") {
       const bestwaifu = interaction.options.get("bestwaifu").value;
@@ -47,6 +50,7 @@ client.on('interactionCreate', (interaction) => {
       interaction.reply({
         content: `You chose ${bestwaifu} and ${bestanime} as your favourite waifu and anime !`
       });
+
     } else if (interaction.commandName === "introduce") {
       const modal = new ModalBuilder()
         .setTitle('Introduce Yourself')
@@ -87,7 +91,7 @@ client.on('interactionCreate', (interaction) => {
       const username = interaction.fields.getTextInputValue("username");
       const gender = interaction.fields.getTextInputValue("gender");
 
-      function genderResult(gender){
+      function genderResult(gender) {
         var answer;
         switch (gender.toLowerCase()) {
           case "male": case "guy": case "boy": case "man": case "he/him": case "he":
@@ -98,9 +102,9 @@ client.on('interactionCreate', (interaction) => {
             break;
           default:
             answer = "it";
+        }
+        return answer;
       }
-      return answer;
-    }
 
       console.log(username + " introduced " + genderResult(gender) + "self");
       interaction.reply({
@@ -122,6 +126,14 @@ async function main() {
   ];
 
   try {
+    await mongoose.connect(DATABASE_URL || "", {
+      keepAlive: true,
+    });
+
+    if (mongoose.connect) {
+      console.log("Database connected.")
+    }
+    
     console.log('Started refreshing application (/) commands.');
     await rest.put(Routes.applicationCommands(CLIENT_ID, GUILD_ID), {
       body: commands,
